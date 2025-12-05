@@ -1,0 +1,38 @@
+@use "variables" as v;
+
+footer {
+  background-color: darken(v.$background, 5%);
+  border-top: 2px solid v.$fuente-secundaria;
+  color: v.$fuente-primaria;
+  text-align: center;
+  padding: 1rem;
+  width: 100%; // ocupa todo el ancho
+  max-width: none; // anula límites de Bootstrap
+  margin-top: auto; // empuja el footer al fondo si usás flex en body
+
+  h4 {
+    margin: 0.5rem 0;
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem); // escala con zoom
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    li a {
+      color: v.$fuente-primaria;
+      text-decoration: none;
+      font-size: clamp(0.8rem, 1.2vw, 1rem);
+
+      &:hover {
+        color: v.$fuente-secundaria;
+      }
+    }
+  }
+}
+    

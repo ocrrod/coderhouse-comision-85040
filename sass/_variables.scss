@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400..900&display=swap');
+$fuente: Orbitron;
+$background: rgb(0, 0, 0);
+$fuente-primaria: rgb(255, 255, 255);    
+$fuente-secundaria: rgb(105, 9, 105);
+$boton-borde:rgb(255, 255, 255);
+$header-height: 100px;
+
+
+*{
+    font-family: $fuente;
+    color: $fuente-primaria;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  background-color: $background;
+}
+
+
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin nav-link-style($color) {
+  color: $color;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}

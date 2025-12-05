@@ -1,0 +1,50 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 100%;
+  margin: auto;
+
+  align-items: start;
+
+  .album-card {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: lighten(v.$background, 5%);
+    border: 2px solid v.$fuente-secundaria;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(105, 9, 105, 0.4);
+    padding: 12px;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    .album-info {
+      text-align: center;
+
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+        color: v.$fuente-primaria;
+      }
+
+      p {
+        color: lighten(v.$fuente-secundaria, 20%);
+        font-size: 0.9rem;
+      }
+    }
+
+    iframe {
+      margin-top: 12px;
+      border: none;
+      border-radius: 12px
+    }
+  }
+}

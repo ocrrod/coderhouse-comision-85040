@@ -1,0 +1,14 @@
+@use "variables" as v;
+@mixin flex-center($align,$justify) {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+@mixin nav-link-style($color) {
+color: $color;
+text-decoration: none;
+padding: 5px 10px;
+border-radius: 4px;
+}
+

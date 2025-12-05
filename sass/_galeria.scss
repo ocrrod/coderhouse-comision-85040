@@ -1,0 +1,82 @@
+@use "variables" as v;
+body {
+    background-color: v.$background;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin nav-link-style($color) {
+  color: $color;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: v.$background 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+// 🎨 Galería desktop-first
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); // 🔑 5 columnas fijas
+  grid-template-rows: repeat(2, auto);   // 🔑 2 filas automáticas
+  gap: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid v.$fuente-secundaria;
+    border-radius: 12px;
+    background-color: v.$background;
+    box-shadow: 0 6px 16px rgba(v.$fuente-secundaria, 0.35);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      filter: saturate(105%) contrast(102%);
+      transition: transform 220ms ease, filter 220ms ease;
+    }
+
+    figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.5rem 0.7rem;
+      font-size: 0.85rem;
+      color: v.$fuente-primaria;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(20, 0, 30, 0.9) 100%
+      );
+      backdrop-filter: blur(2px);
+    }
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(v.$fuente-secundaria, 0.35);
+      border-color: lighten(v.$fuente-secundaria, 15%);
+
+      img {
+        transform: scale(0.95); // 🔽 más chico en hover
+        filter: saturate(110%) contrast(104%) brightness(102%);
+      }
+    }
+  }
